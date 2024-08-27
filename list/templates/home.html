@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my ToDo List</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/home.css'%}">
+</head>
+<body>
+    <header>
+        <a href="/"><h1><strong>My list</strong></h1></a>
+        <ul>
+            <li><a href="/Add_Task/">Add_Task</a></li>
+        </ul>
+    </header>
+    <main>
+        <h1>Votre todo list ici !</h1>
+        <ul>
+            {% for tache in taches %}
+                <div id="lis">
+                    <li>{{ tache.id }}-{{ tache.titre }} : Ajoutee le ({{ tache.day }}); </li>
+                    <a href="{% url 'detail' tache.id %}"><img src="{% static 'images/eye.png' %}" alt=""></a>
+                </div>
+            {% empty %}
+                <li>Aucune tâche pour le moment</li>
+            {% endfor %}
+        </ul>
+        <img src="{% static 'images/todo.jpeg' %}" alt="">
+    </main>
+    <footer>
+        <h1>My footer</h1>
+    </footer>
+</body>
+</html>

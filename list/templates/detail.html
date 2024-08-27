@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my ToDo List:titre</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/detail.css'%}">
+</head>
+<body>
+    <header>
+        <a href="/"><h1><strong>My list</strong></h1></a>
+        <ul>
+            <li><a href="{% url 'Modify_Task' tache.id %}">Modify_Task</a></li>
+        </ul>
+    </header>
+    <main>
+        <div id="det">
+            <h1>{{ tache.titre }}</h1>
+            <p><strong>Détails :</strong> {{ tache.detail }}</p>
+            <p><strong>Statut :</strong> {{ tache.get_statut_display }}</p>
+            <p><strong>Date :</strong> {{ tache.day }}</p>
+        </div>
+        <img src="{% static 'images/todo.jpeg' %}" alt="">
+    </main>
+    <footer>
+        <h1>My footer</h1>
+    </footer>
+</body>
+</html>

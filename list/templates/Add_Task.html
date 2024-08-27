@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter une tâche</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/add.css'%}">
+</head>
+<body>
+    <header>
+        <a href="/"><h1><strong>My list</strong></h1></a>
+    </header>
+    <main>
+        <h1>Ajouter une nouvelle tâche</h1>
+        <fieldset>
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}  <!-- Affiche le formulaire sous forme de paragraphes -->
+                <button type="submit">Ajouter</button>
+            </form>
+        </fieldset>
+    </main>
+    <footer>
+        <h1>My footer</h1>
+    </footer>
+</body>
+</html>
